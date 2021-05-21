@@ -1,0 +1,17 @@
+{
+  "name": "coinbase-watch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "vnomad",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bent": "^7.3.12",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "morgan": "^1.10.0",
+    "node-cron": "^3.0.0",
+    "twilio": "^3.62.0",
+    "winston": "^3.3.3"
+  }
+}
