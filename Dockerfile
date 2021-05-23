@@ -1,5 +1,5 @@
 FROM node:14-alpine
-LABEL version="1.0"
+LABEL version="1.1"
 
 # Install pm2
 RUN npm install pm2 -g

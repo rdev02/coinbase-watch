@@ -5,6 +5,7 @@ const _state = {
     notificationSent: false,
     min: process.env.CBW_COIN_MIN_PRICE || 2000,
     max: process.env.CBW_COIN_MAX_PRICE || 4000,
+    stopLoss: process.env.CBW_COIN_STOP_LOSS || 1000,
     checksToNotify: process.env.CBW_MIN_CHECKS || 3,
     currentMinChecks: 0,
     currentMaxChecks: 0

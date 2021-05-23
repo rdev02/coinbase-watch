@@ -55,6 +55,23 @@ app.put('/max/:newPrice', (req, res) => {
     }
 });
 
+app.get('/stopLoss', (req, res) => {
+    res.jsonp(state.state.stopLoss);
+});
+
+app.put('/stopLoss/:newPrice', (req, res) => {
+    const newPrice = Number(req.params.newPrice);
+    if(!isNaN(newPrice) && newPrice > 0){
+        state.state.stopLoss = newPrice;
+        state.reset();
+        const msg =`stop loss price set to $${newPrice}`;
+        logger.info(msg);
+        res.send(msg);
+    } else {
+        res.sendStatus(400);
+    }
+});
+
 app.get('/checkAndSend', (req, res) => {
     checker.checkAndNotify()
         .catch(err => res.send(err))

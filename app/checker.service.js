@@ -45,6 +45,10 @@ module.exports.checkAndNotify = async () => {
         logger.info('send sms for buy event: price below $' + buyPrice);
         await sendSMS('{PAIR} price below ${PRICE}. Consider buying.', buyPrice);
         state.notificationSent = true;
+    } else if (sellPrice <= state.stopLoss) {
+        logger.info('send sms for stop loss event: price below $' + sellPrice);
+        await sendSMS('{PAIR} price blow ${PRICE}. Time to cut losses.', sellPrice);
+        state.notificationSent = true;
     } else if (sellPrice >= state.max) {
         state.currentMaxChecks += 1;
         if(state.currentMaxChecks < state.checksToNotify) {
